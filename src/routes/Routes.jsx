@@ -7,6 +7,9 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Booking from "../pages/Booking/Booking";
+import Blog from "../pages/Blog/Blog";
+import PrivateRoute from "./PrivateRoute";
+
 
   const router = createBrowserRouter([
     {
@@ -21,6 +24,11 @@ import Booking from "../pages/Booking/Booking";
             path:'/login',
             element: <Login />
          },
+         {
+            path:'/blog',
+            element: <PrivateRoute><Blog/></PrivateRoute>
+         },
+       
          {
             path:'/register',
             element: <Register />

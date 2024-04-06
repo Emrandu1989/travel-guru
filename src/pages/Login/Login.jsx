@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from 'sweetalert2';
 import googleIcon from '../../assets/images/google.png';
@@ -10,6 +10,8 @@ import facebookIcon from '../../assets/images/fb.png';
 const Login = () => {
     const {login, handleGoogleSignIn} = useContext(AuthContext);
     const navigate = useNavigate()
+    const location = useLocation();
+    console.log(location);
     const [success, setSuccess] = useState(null) 
     const [error, setError] = useState(null)
      
@@ -32,7 +34,7 @@ const Login = () => {
                 
                 
               }))
-            navigate('/')
+            navigate(location?.state ? location.state : '/')
           })
           .catch(error =>{
             console.log(error)
